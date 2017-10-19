@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_debugtoolbar import DebugToolbarExtension
 
 app = Flask(__name__)
-app.config.from_object('config.DevelopConfig')  # DeveloperConfig and ProductionConfig
+app.config.from_object('config.DeveloperConfig')  # DeveloperConfig and ProductionConfig
 
 
 db = SQLAlchemy(app)
