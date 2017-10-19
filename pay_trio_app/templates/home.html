@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% from "_formhelpers.html" import render_field %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+</head>
+<body>
+
+<form method="POST" action="/">
+
+    {{ form.csrf_token }}
+    {{ render_field(form.amount) }}
+    {{ render_field(form.currency) }}
+    {{ render_field(form.description) }}
+    <input type="submit" value="Pay">
+
+
+</form>
+
+</body>
+</html>
