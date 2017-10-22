@@ -2,7 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_debugtoolbar import DebugToolbarExtension
 
-from pay_trio_app import models
+from . import models
 
 
 app = Flask(__name__)
