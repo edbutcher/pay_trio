@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_debugtoolbar import DebugToolbarExtension
 
 app = Flask(__name__)
-app.config.from_object('config.DeveloperConfig')  # DeveloperConfig and ProductionConfig
+app.config.from_object('config.ProductionConfig')  # DeveloperConfig and ProductionConfig
 
 
 db = SQLAlchemy(app)
@@ -11,5 +11,3 @@ db = SQLAlchemy(app)
 toolbar = DebugToolbarExtension(app)
 
 import pay_trio_app.views
-
-

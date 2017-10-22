@@ -3,10 +3,9 @@ import os
 
 class ProductionConfig(object):
     DEBUG = False
-    CSRF_ENABLED = True
-    SECRET_KEY = os.urandom(24)
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///pay_trio_app.db'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SECRET_KEY = os.urandom(24)
+    SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
 
 
 class DeveloperConfig(ProductionConfig):

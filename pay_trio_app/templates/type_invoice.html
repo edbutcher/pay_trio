@@ -7,6 +7,25 @@
 <body>
 
 <p>{{ context }}</p>
+<form method="{{ context.method }}" action="{{ context.source }}">
+    <div>
+        <label for="m_curorderid">m_curorderid</label><br>
+        <input id="m_curorderid" name="m_curorderid" value="{{ context.m_curorderid }}" readonly/>
+    </div>
+    <div>
+        <label for="m_historytm">m_historytm</label><br>
+        <input id="m_historytm" name="m_historytm" value="{{ context.m_historytm }}" readonly/>
+    </div>
+    <div>
+        <label for="m_historyid">m_historyid</label><br>
+        <input id="m_historyid" name="m_historyid" value="{{ context.m_historyid }}" readonly/>
+    </div>
+    <div>
+        <label for="lang">lang</label><br>
+        <input id="lang" name="lang" value="{{ context.lang }}" readonly/>
+    </div>
+<input type="submit"/>
+</form>
 
 </body>
 </html>
