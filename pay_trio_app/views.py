@@ -1,5 +1,5 @@
 from flask import render_template, request
-from pay_trio_app import app
+from pay_trio_app.app import app, db
 from pay_trio_app.forms import PayForm
 from pay_trio_app.models import Pay
 
