@@ -15,6 +15,3 @@ from pay_trio_app.models import Pay
 db.create_all()
 db.session.commit()
 
-
-if __name__ == '__main__':
-    app.run()
