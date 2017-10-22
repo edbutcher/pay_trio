@@ -1,0 +1,1 @@
+web: gunicorn pay_trio_app.wsgi:application --log-file -

@@ -7,8 +7,9 @@ import random
 import hashlib
 import json
 import requests
+import os
 
-key = '97PO2RxFnIptdJqpDf6Rl4SCRVgJoK0kR'
+key = os.environ['my_key']
 
 shop_id = '305100'  # Shop id from store
 
