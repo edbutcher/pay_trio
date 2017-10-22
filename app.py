@@ -1,8 +1,11 @@
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
+from flask_wtf import FlaskForm
+from wtforms import TextAreaField, SelectField, FloatField
+from wtforms.validators import NumberRange, InputRequired
 
-from app.pay_trio_app.forms import PayForm
 
+from datetime import datetime
 import random
 import hashlib
 import json
@@ -15,10 +18,40 @@ app.config.from_object('config.ProductionConfig')  # DeveloperConfig and Product
 
 db = SQLAlchemy(app)
 
-from pay_trio_app.models import Pay
+
+class Pay(db.Model):
+
+    __tablename__ = 'pay'
+
+    amount = db.Column(db.Float)
+    currency = db.Column(db.Integer)
+    description = db.Column(db.String)
+    time_stamp = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    shop_invoice_id = db.Column(db.Integer, primary_key=True)
+    invoice_id = db.Column(db.Integer)
+
+    def __init__(self, amount=None, currency=None, description=None, time_stamp=None, invoice_id=None):
+        self.amount = amount
+        self.currency = currency
+        self.description = description
+        self.time_stamp = time_stamp
+        self.invoice_id = invoice_id
+
+    def __str__(self):
+        return '<Description: %r>' % self.description
+
 
 db.create_all()
 db.session.commit()
+
+
+class PayForm(FlaskForm):
+    """Pay form."""
+    amount = FloatField('Amount', validators=[InputRequired(),
+                                                NumberRange(min=0.00, message="Must be a number biggest than 0.00")])
+    currency = SelectField('Currency', choices=[('840', 'USD'), ('978', 'EUR')])
+    description = TextAreaField('Description', validators=[InputRequired()])
+
 
 key = os.environ['my_key']
 
@@ -134,3 +167,7 @@ def index():
                 return render_template('error.html', context=error)
 
     return render_template('home.html', form=form)
+
+
+if __name__ == '__main__':
+    app.run()
