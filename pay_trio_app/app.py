@@ -1,6 +1,5 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from flask_debugtoolbar import DebugToolbarExtension
 
 from . import models
 
@@ -13,7 +12,6 @@ db = SQLAlchemy(app)
 db.create_all()
 db.session.commit()
 
-toolbar = DebugToolbarExtension(app)
 
 import pay_trio_app.views
 
