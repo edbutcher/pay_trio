@@ -1,4 +1,4 @@
-from app import db
+from app.pay_trio_app.app import db
 from datetime import datetime
 
 

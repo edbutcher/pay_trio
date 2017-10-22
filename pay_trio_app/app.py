@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 
-from app.forms import PayForm
+from app.pay_trio_app.forms import PayForm
 
 import random
 import hashlib
