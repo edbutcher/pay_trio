@@ -8,7 +8,6 @@ class ProductionConfig(object):
     SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
 
 
-
 class DeveloperConfig(ProductionConfig):
     ASSETS_DEBUG = True
     DEBUG_TB_INTERCEPT_REDIRECTS = False
